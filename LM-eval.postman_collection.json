@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "a576a905-6340-4b25-99c6-a0163d7f7625",
+		"name": "LM-eval",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10580054"
+	},
+	"item": [
+		{
+			"name": "Get config",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/config",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"config"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token encode",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\": \" browser.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/tok_encode",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"tok_encode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token decode",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ids\": [\n        1212,\n        318,\n        257,\n        1332,\n        13,\n        383,\n        1332,\n        318,\n        284,\n        766,\n        611,\n        262,\n        2836,\n        318,\n        1262,\n        257,\n        1180\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/tok_decode",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"tok_decode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate greedy util",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"context\": \"This is a test.\",\n    \"max_tokens\": 25,\n    \"stop\": [\".\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/greedy_util",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"greedy_util"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Loglikelihood Tokens",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"context_enc\": [\n        1212,\n        318,\n        257,\n        1332,\n        13,\n        383,\n        1332,\n        318,\n        284,\n        766,\n        611,\n        262,\n        2836,\n        318,\n        1262,\n        257,\n        1180\n    ],\n    \"continuation_enc\": [\n        6444,\n        13\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/loglikelihood_tokens",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"loglikelihood_tokens"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{X-Secret-Key}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "X-Secret-Key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "X-Secret-Key",
+			"value": "your-secret-key",
+			"type": "string"
+		}
+	]
+}
